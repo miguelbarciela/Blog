@@ -21,7 +21,10 @@
 
     <div>
       <% if notice%>
-        <p class="alert alert-primary"><%= notice %></p>
+        <div class="alert alert-warning alert-dismissible fade show">
+        <%= notice %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
       <%end%>
       <% if alert%>
         <p class="alert alert-danger"><%= alert %></p>
