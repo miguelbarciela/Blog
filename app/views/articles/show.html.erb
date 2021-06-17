@@ -7,7 +7,7 @@
   <h1 class="display-4"><%= @article.title %></h1>
   <p class="lead"><%= @article.content %></p>
   <hr class="my-4">
-  <h3>Elige una acción:</h3>
+  <p>Escrito por: <strong><%= @article.user.email %></strong></p>
   <%= link_to "Modificar artículo", :edit, class:"btn btn-primary btn-lg" %>
   <%= link_to "Eliminar artículo", @article, class:"btn btn-primary btn-lg", method: :delete, data: {confirm: "Are you sure?"} %>
   
