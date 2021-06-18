@@ -12,3 +12,31 @@
   <%= link_to "Eliminar artículo", @article, class:"btn btn-primary btn-lg", method: :delete, data: {confirm: "Are you sure?"} %>
   
 </div>
+
+<h2>Comentarios</h2>
+<% @article.comments.each do |comment| %>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %><br>
+  <%= comment.body %>
+</p>
+<%end%>
+
+<h2>Introduce un comentario</h2>
+<%= form_with model:[@article, @article.comments.build] do |form| %>
+
+<p>
+  <%= form.label :commenter %><br>
+  <%= form.text_field :commenter %>
+</p>
+<p>
+  <%= form.label :body %><br>
+  <%= form.text_area :body %>
+</p>  
+<p>
+  <%= form.submit %>
+</p>
+
+
+<% end %>
+  
