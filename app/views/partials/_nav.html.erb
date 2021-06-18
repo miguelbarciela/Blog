@@ -8,6 +8,7 @@
   
   <% if user_signed_in? %>
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Escribir', new_article_path, class:"nav-link" %></button>
+            <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to "Tus artículos", us_articles_path(current_user), class:"nav-link" %></button>
             
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:"nav-link" %></button>
             

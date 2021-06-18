@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
    get 'home/index'
    root to: "home#index"
-   
+
+      
    resources :articles do
-    get "user/:user_id", to: "articles#from_author", on: :collection   
+    get "user/:user_id", to: "articles#from_author", on: :collection, as: :us
     #resources :users
    end
 
