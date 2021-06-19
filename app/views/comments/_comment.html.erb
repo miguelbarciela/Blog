@@ -1,0 +1,11 @@
+ 
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.commenter %></h5>
+    <!--<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+    <p class="card-text"><%= comment.body %></p>
+    
+    <%= link_to 'Borrar comentario', [comment.article, comment], method: :delete, data: {confirm: "¿Estás seguro?"} %>
+    
+  </div>
+</div>
