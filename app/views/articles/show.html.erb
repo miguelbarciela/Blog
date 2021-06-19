@@ -8,9 +8,21 @@
   <p class="lead"><%= @article.content %></p>
   <hr class="my-4">
   <p>Escrito por: <strong><%= @article.user.email %></strong></p>
+
+  <div>
+    <p class="label">Tags</p>
+    <% @article.categories.each do |category| %>
+      <span class="badge badge-pill padding" style="background-color: <%= category.color %> ">
+        <%= link_to category.title , category, class:"text-white" %>
+      </span>
+    <% end %>
+  </div>
+  <br>
+
+  <% if user_signed_in? %>
   <%= link_to "Modificar artículo", edit_article_path, class:"btn btn-primary btn-lg" %>
   <%= link_to "Eliminar artículo", @article, class:"btn btn-primary btn-lg", method: :delete, data: {confirm: "Are you sure?"} %>
-  
+  <%end%>
 </div>
 
 <h2>Comentarios</h2>

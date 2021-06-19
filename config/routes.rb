@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  
   resources :categories
   devise_for :users
-   get 'home/index'
-   root to: "home#index"
+  get 'home/index'
+  get "perfil", to: "users#edit"
+
+  root to: "home#index"
 
       
    resources :articles do

@@ -11,10 +11,14 @@ class Article < ApplicationRecord
 
     def save_categories
         #category_elements 1,2,3
-        #convertir en un arreglo 1,2,3 => [1,2,3]
-        categories_array = category_elements.split(",")
+
+        return has_categories.destroy_all if category_elements.nil? || category_elements.empty?
+
+        #para que al modificar un articulo que tenia categorias, y no se selecciona ninguna, las elimine
+        has_categories.where.not(category_id: category_elements).destroy_all
+
         #iterar ese arreglo
-        categories_array.each do |category_id|
+        category_elements.each do |category_id|
             #crear HasCategory HasCategory<article_id: 1, category_id: 2>
             HasCategory.find_or_create_by(article: self, category_id: category_id)
             #evita que se creen duplicados
