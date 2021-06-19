@@ -3,14 +3,16 @@
 <nav class="navbar navbar-light bg-light">
   <form class="container-fluid justify-content-start">
     <button class="btn btn-outline-success me-4" type="button"><%= link_to 'Inicio', root_path, class:"nav-link" %></button>
-    <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Articulos', articles_path, class:"nav-link" %></button>
+    
     
   
   <% if user_signed_in? %>
           <% if current_user.avatar.attached? %>
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Mi perfil', perfil_path, class:"nav-link" %></button>
-          <% end %>  
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Escribir', new_article_path, class:"nav-link" %></button>
+          <% end %>  
+            <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Articulos', articles_path, class:"nav-link" %></button>
+            
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to "Tus artículos", us_articles_path(current_user), class:"nav-link" %></button>
             
             <button class="btn btn-sm btn-outline-secondary me-2" type="button"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:"nav-link" %></button>

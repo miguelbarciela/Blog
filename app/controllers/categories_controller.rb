@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
+  http_basic_authenticate_with name: "miguel", password: "123456", except: [:index]
 
   # GET /categories or /categories.json
   def index
