@@ -1,2 +1,18 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+    <h2>Editar usuario</h2>
+
+<div class="input-group mb-3">
+
+
+    <%= image_tag url_for(current_user.avatar), height:100 %>
+
+  <%= form_with(model: current_user, local:true) do |form|%>
+        <div class="form-control">
+            <%= form.label :avatar %>
+            <%= form.file_field :avatar %>
+        </div>
+    
+  <label class="input-group-text"><%= form.submit "Guardar" %></label>
+    <%end%>
+</div>
+
